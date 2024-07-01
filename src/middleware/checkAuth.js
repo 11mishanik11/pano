@@ -1,5 +1,5 @@
-import ApiError from "../../utils/ApiError/ApiError.js";
 import tokenService from "../services/tokenService.js";
+import ApiError from "../utils/ApiError/ApiError.js";
 
 const checkAuth = (req, res, next) => {
   try {
