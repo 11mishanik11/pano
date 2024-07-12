@@ -1,5 +1,4 @@
 import {Router} from "express";
-import validationSchemes from "../utils/ValidationSchemes/ValidationSchemes.js";
 import projectController from "../controllers/projectController.js";
 
 const router = Router();

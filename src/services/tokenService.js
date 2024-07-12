@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import ApiError from "../utils/ApiError/ApiError.js";
 
 class TokenService {
   generateToken (payload) {
@@ -13,7 +14,7 @@ class TokenService {
     try {
       return jwt.verify(accessToken, process.env.SECRET_ACCESS)
     } catch (e) {
-      return null
+      return ApiError.AuthorizationError()
     }
   }
 }

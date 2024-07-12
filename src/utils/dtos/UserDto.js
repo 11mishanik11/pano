@@ -5,14 +5,6 @@ export class CreateUserBodyDto {
   }
 }
 
-export class CreateUserResDto {
-  constructor(user) {
-    this.id = user.id;
-    this.email = user.email;
-    this.role = user.role;
-  }
-}
-
 export class LoginUserBodyDto {
   constructor(user) {
     this.email = user.email;
@@ -20,7 +12,7 @@ export class LoginUserBodyDto {
   }
 }
 
-export class LoginUserResDto {
+export class ResponseUserDto {
   constructor(user) {
     this.id = user.id;
     this.email = user.email;
