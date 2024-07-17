@@ -3,7 +3,6 @@ import tokenService from "../services/tokenService.js";
 
 const checkAuth = (req, res, next) => {
 	try {
-		console.log(req.headers.authorization)
 		const accessToken = req.headers.authorization.split(' ')[1];
 
 		if (!accessToken) {

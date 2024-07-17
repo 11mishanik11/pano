@@ -25,7 +25,7 @@ class UserService {
     const user = await User.findOne({where: {email}});
 
     if (!user) {
-        throw ApiError.AuthorizationError()
+        throw ApiError.NotFound()
     }
 
     const comparePassword = await bcrypt.compare(password, user.password);
@@ -36,6 +36,18 @@ class UserService {
     const responseUserDto = new ResponseUserDto(user)
     const token = tokenService.generateToken({...responseUserDto})
     return {...token, user: responseUserDto}
+  }
+
+  async refresh (payloadUser) {
+    console.log(payloadUser)
+    const user = await User.findByPk(payloadUser.id)
+
+    if (!user) {
+      throw ApiError.NotFound()
+    }
+
+    const responseUserDto = new ResponseUserDto(user)
+    return {user: responseUserDto}
   }
 }
 

@@ -13,9 +13,9 @@ router
   .post('/login',
     userController.login
   )
-  .get('/auth',
+  .get('/refresh',
     checkAuth,
-    userController.auth
+    userController.refresh
   )
 
 export default router;

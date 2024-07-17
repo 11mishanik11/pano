@@ -24,9 +24,10 @@ class UserController {
     }
   }
 
-  async auth (req, res, next) {
+  async refresh (req, res, next) {
     try {
-      res.status(200).json(req.user)
+      const user = await userService.refresh(req.user)
+      res.status(200).json(user)
     } catch (e) {
       next(e)
     }
