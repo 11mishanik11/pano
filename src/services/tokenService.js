@@ -1,9 +1,8 @@
 import jwt from "jsonwebtoken";
-import ApiError from "../utils/ApiError/ApiError.js";
 
 class TokenService {
   generateToken (payload) {
-    const accessToken = jwt.sign(payload, process.env.SECRET_ACCESS, {expiresIn: '15m'})
+    const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15m'})
 
     return {
       accessToken,
@@ -12,9 +11,9 @@ class TokenService {
 
   validateAccessToken (accessToken) {
     try {
-      return jwt.verify(accessToken, process.env.SECRET_ACCESS)
+      return jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
     } catch (e) {
-      return ApiError.AuthorizationError()
+      return null
     }
   }
 }

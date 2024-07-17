@@ -18,7 +18,6 @@ class UserService {
       const responseUserDto = new ResponseUserDto(user);
       const token = tokenService.generateToken({...responseUserDto})
 
-      console.log(createUserResDto)
       return {...token, user: responseUserDto}
   }
   
@@ -37,13 +36,6 @@ class UserService {
     const responseUserDto = new ResponseUserDto(user)
     const token = tokenService.generateToken({...responseUserDto})
     return {...token, user: responseUserDto}
-  }
-
-  async auth () {
-    // const user = await User.findByPk(id)
-    // const responseUserDto = new ResponseUserDto(user)
-    // const token = tokenService.generateToken({...responseUserDto})
-    // return {...token, user: responseUserDto}
   }
 }
 

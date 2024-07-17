@@ -1,7 +1,5 @@
 import userService from "../services/userService.js";
 import {CreateUserBodyDto, LoginUserBodyDto} from "../utils/dtos/UserDto.js";
-import {User} from "../db/index.js";
-
 
 class UserController {
 
@@ -28,8 +26,15 @@ class UserController {
 
   async auth (req, res, next) {
     try {
-      // const user = await userService.auth(req.user.id)
-      res.status(200).json('All right.')
+      res.status(200).json(req.user)
+    } catch (e) {
+      next(e)
+    }
+  }
+
+  async getUser (req, res, next) {
+    try {
+
     } catch (e) {
       next(e)
     }
